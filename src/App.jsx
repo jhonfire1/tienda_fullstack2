@@ -43,6 +43,19 @@ function App() {
     }
   }
 
+  function cambiarCantidad(id, cambio) {
+    const nuevoCarrito = carrito
+      .map((item) => {
+        if (item.id === id) {
+          return { ...item, cantidad: item.cantidad + cambio };
+        }
+        return item;
+      })
+      .filter((item) => item.cantidad > 0);
+
+    setCarrito(nuevoCarrito);
+  }
+
   const productosFiltrados = filtrarProductos(productos, busqueda);
 
   let contenidoCatalogo;
@@ -74,7 +87,7 @@ function App() {
         <div className="row g-4">
           <div className="col-12 col-lg-8">{contenidoCatalogo}</div>
           <div className="col-12 col-lg-4">
-            <Carrito carrito={carrito} />
+            <Carrito carrito={carrito} onCambiarCantidad={cambiarCantidad} />
           </div>
         </div>
       </main>

@@ -1,6 +1,10 @@
 import TarjetaProducto from "./TarjetaProducto";
 
 function ListaProductos({ productos }) {
+  if (productos.length === 0) {
+    return <p className="text-secondary">No hay productos</p>;
+  }
+
   return (
     <div className="row g-4">
       {productos.map((producto) => (

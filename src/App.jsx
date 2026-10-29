@@ -3,12 +3,14 @@ import { obtenerProductos } from "./api/productosApi";
 import { filtrarProductos } from "./utils/filtrarProductos";
 import BarraBusqueda from "./components/BarraBusqueda";
 import ListaProductos from "./components/ListaProductos";
+import Carrito from "./components/Carrito";
 
 function App() {
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
   const [busqueda, setBusqueda] = useState("");
+  const [carrito, setCarrito] = useState([]);
 
   useEffect(() => {
     async function cargarProductos() {
@@ -25,6 +27,22 @@ function App() {
     cargarProductos();
   }, []);
 
+  function agregarAlCarrito(producto) {
+    const existente = carrito.find((item) => item.id === producto.id);
+
+    if (existente) {
+      const nuevoCarrito = carrito.map((item) => {
+        if (item.id === producto.id) {
+          return { ...item, cantidad: item.cantidad + 1 };
+        }
+        return item;
+      });
+      setCarrito(nuevoCarrito);
+    } else {
+      setCarrito([...carrito, { ...producto, cantidad: 1 }]);
+    }
+  }
+
   const productosFiltrados = filtrarProductos(productos, busqueda);
 
   let contenidoCatalogo;
@@ -33,7 +51,12 @@ function App() {
   } else if (error) {
     contenidoCatalogo = <p className="alert alert-danger">{error}</p>;
   } else {
-    contenidoCatalogo = <ListaProductos productos={productosFiltrados} />;
+    contenidoCatalogo = (
+      <ListaProductos
+        productos={productosFiltrados}
+        onAgregar={agregarAlCarrito}
+      />
+    );
   }
 
   return (
@@ -47,7 +70,14 @@ function App() {
         </div>
       </nav>
 
-      <main className="container py-4">{contenidoCatalogo}</main>
+      <main className="container py-4">
+        <div className="row g-4">
+          <div className="col-12 col-lg-8">{contenidoCatalogo}</div>
+          <div className="col-12 col-lg-4">
+            <Carrito carrito={carrito} />
+          </div>
+        </div>
+      </main>
     </>
   );
 }

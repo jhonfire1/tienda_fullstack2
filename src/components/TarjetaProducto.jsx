@@ -1,4 +1,4 @@
-function TarjetaProducto({ producto }) {
+function TarjetaProducto({ producto, onAgregar }) {
   return (
     <article className="card h-100">
       <img
@@ -18,7 +18,11 @@ function TarjetaProducto({ producto }) {
 
         <p>Stock: {producto.stock}</p>
 
-        <button className="btn btn-primary" type="button">
+        <button
+          className="btn btn-primary"
+          type="button"
+          onClick={() => onAgregar(producto)}
+        >
           Agregar
         </button>
       </div>

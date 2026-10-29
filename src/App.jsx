@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { obtenerProductos } from "./api/productosApi";
 import { filtrarProductos } from "./utils/filtrarProductos";
+import { calcularTotal } from "./utils/calcularTotal";
 import BarraBusqueda from "./components/BarraBusqueda";
 import ListaProductos from "./components/ListaProductos";
 import Carrito from "./components/Carrito";
@@ -11,6 +12,7 @@ function App() {
   const [error, setError] = useState("");
   const [busqueda, setBusqueda] = useState("");
   const [carrito, setCarrito] = useState([]);
+  const [mensajeCompra, setMensajeCompra] = useState("");
 
   useEffect(() => {
     async function cargarProductos() {
@@ -28,6 +30,7 @@ function App() {
   }, []);
 
   function agregarAlCarrito(producto) {
+    setMensajeCompra("");
     const existente = carrito.find((item) => item.id === producto.id);
 
     if (existente) {
@@ -54,6 +57,14 @@ function App() {
       .filter((item) => item.cantidad > 0);
 
     setCarrito(nuevoCarrito);
+  }
+
+  function pagar() {
+    const total = calcularTotal(carrito);
+    setMensajeCompra(
+      "¡Compra realizada con éxito! Total pagado: $" + total.toLocaleString("es-CL")
+    );
+    setCarrito([]);
   }
 
   const productosFiltrados = filtrarProductos(productos, busqueda);
@@ -87,7 +98,12 @@ function App() {
         <div className="row g-4">
           <div className="col-12 col-lg-8">{contenidoCatalogo}</div>
           <div className="col-12 col-lg-4">
-            <Carrito carrito={carrito} onCambiarCantidad={cambiarCantidad} />
+            <Carrito
+              carrito={carrito}
+              mensajeCompra={mensajeCompra}
+              onCambiarCantidad={cambiarCantidad}
+              onPagar={pagar}
+            />
           </div>
         </div>
       </main>

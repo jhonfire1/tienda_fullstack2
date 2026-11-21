@@ -1,5 +1,7 @@
 Tienda de Videojuegos
 
+La **Parcial 3** integra este frontend con Spring Boot. Para ejecutar la versión actual, consulta [Instrucciones de la Parcial 3](LEEME-PARCIAL-3.md). Lo que sigue documenta la Parcial 2.
+
 Proyecto de la Evaluación Parcial N°2 de DSY1104 Desarrollo Fullstack II (DuocUC). Una sola pantalla con catálogo de videojuegos, búsqueda en tiempo real y carrito de compras.
 
 Tecnologías

@@ -1,4 +1,4 @@
-function ItemCarrito({ item, onCambiarCantidad }) {
+function ItemCarrito({ item, onCambiarCantidad, bloqueado }) {
   const subtotal = item.precio_nuevo * item.cantidad;
 
   return (
@@ -17,6 +17,8 @@ function ItemCarrito({ item, onCambiarCantidad }) {
           <button
             className="btn btn-outline-secondary btn-sm"
             type="button"
+            disabled={bloqueado}
+            aria-label={"Quitar una unidad de " + item.nombre}
             onClick={() => onCambiarCantidad(item.id, -1)}
           >
             −
@@ -25,6 +27,8 @@ function ItemCarrito({ item, onCambiarCantidad }) {
           <button
             className="btn btn-outline-secondary btn-sm"
             type="button"
+            disabled={bloqueado}
+            aria-label={"Agregar una unidad de " + item.nombre}
             onClick={() => onCambiarCantidad(item.id, 1)}
           >
             +

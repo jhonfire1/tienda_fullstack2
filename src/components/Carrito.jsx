@@ -1,7 +1,7 @@
 import ItemCarrito from "./ItemCarrito";
 import { calcularTotal } from "../utils/calcularTotal";
 
-function Carrito({ carrito, mensajeCompra, onCambiarCantidad, onPagar }) {
+function Carrito({ carrito, mensajeCompra, onCambiarCantidad, onPagar, errorCompra, sesion, comprando }) {
   return (
     <section className="card">
       <div className="card-header">
@@ -13,6 +13,7 @@ function Carrito({ carrito, mensajeCompra, onCambiarCantidad, onPagar }) {
           {mensajeCompra}
         </div>
       )}
+      {errorCompra && <p className="alert alert-danger m-3 mb-0" role="alert">{errorCompra}</p>}
 
       {carrito.length === 0 ? (
         <div className="card-body">
@@ -26,6 +27,7 @@ function Carrito({ carrito, mensajeCompra, onCambiarCantidad, onPagar }) {
                 key={item.id}
                 item={item}
                 onCambiarCantidad={onCambiarCantidad}
+                bloqueado={comprando}
               />
             ))}
           </ul>
@@ -38,10 +40,12 @@ function Carrito({ carrito, mensajeCompra, onCambiarCantidad, onPagar }) {
             <button
               className="btn btn-success w-100"
               type="button"
+              disabled={!sesion || comprando}
               onClick={onPagar}
             >
-              Pagar
+              {comprando ? "Registrando compra…" : "Pagar"}
             </button>
+            {!sesion && <p className="small mt-2 mb-0">Inicia sesión para registrar la compra.</p>}
           </div>
         </>
       )}

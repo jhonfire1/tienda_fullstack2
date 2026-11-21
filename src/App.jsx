@@ -7,6 +7,7 @@ import ListaProductos from "./components/ListaProductos";
 import Carrito from "./components/Carrito";
 import PanelSesion from "./components/PanelSesion";
 import PanelProductos from "./components/PanelProductos";
+import DetalleProducto from "./components/DetalleProducto";
 
 function App() {
   const [productos, setProductos] = useState([]);
@@ -17,7 +18,10 @@ function App() {
   const [mensajeCompra, setMensajeCompra] = useState("");
   const [errorCompra, setErrorCompra] = useState("");
   const [comprando, setComprando] = useState(false);
+  const [productoElegido, setProductoElegido] = useState(null);
   const cuenta = useSesion();
+  const productoActual = productos.find((producto) => producto.id === productoElegido?.id);
+  const cantidadEnCarrito = carrito.find((item) => item.id === productoElegido?.id)?.cantidad ?? 0;
 
   async function cargarProductos() {
     try {
@@ -112,16 +116,23 @@ function App() {
               </div>
             )}
             {!cargando && !error && (
-              <ListaProductos productos={filtrarProductos(productos, busqueda)} onAgregar={agregarAlCarrito} bloqueado={comprando} />
+              <ListaProductos productos={filtrarProductos(productos, busqueda)} onVerDetalle={setProductoElegido} />
             )}
           </div>
           <div className="col-12 col-lg-4">
             <PanelSesion {...cuenta} compraEnCurso={comprando} />
             <Carrito carrito={carrito} mensajeCompra={mensajeCompra} onCambiarCantidad={cambiarCantidad}
-              onPagar={pagar} errorCompra={errorCompra} sesion={cuenta.sesion} comprando={comprando} />
+              onPagar={pagar} errorCompra={errorCompra} sesion={cuenta.sesion} comprando={comprando}
+              onVerDetalle={setProductoElegido} />
           </div>
         </div>
       </main>
+      {productoElegido && (
+        <DetalleProducto producto={productoActual ?? productoElegido}
+          unidadesDisponibles={Math.min(productoActual?.stock ?? 0, 999) - cantidadEnCarrito}
+          comprando={comprando} onAgregar={agregarAlCarrito}
+          onCerrar={() => setProductoElegido(null)} />
+      )}
     </>
   );
 }

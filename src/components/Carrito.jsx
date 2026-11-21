@@ -1,7 +1,7 @@
 import ItemCarrito from "./ItemCarrito";
 import { calcularTotal } from "../utils/calcularTotal";
 
-function Carrito({ carrito, mensajeCompra, onCambiarCantidad, onPagar, errorCompra, sesion, comprando }) {
+function Carrito({ carrito, mensajeCompra, onCambiarCantidad, onPagar, errorCompra, sesion, comprando, onVerDetalle }) {
   return (
     <section className="card">
       <div className="card-header">
@@ -27,6 +27,7 @@ function Carrito({ carrito, mensajeCompra, onCambiarCantidad, onPagar, errorComp
                 key={item.id}
                 item={item}
                 onCambiarCantidad={onCambiarCantidad}
+                onVerDetalle={onVerDetalle}
                 bloqueado={comprando}
               />
             ))}

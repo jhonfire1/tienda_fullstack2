@@ -9,7 +9,8 @@
             "precio_descuento": 6999,
             "precio_nuevo": 5999,
             "stock": 19,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Link despierta sin recuerdos en un Hyrule en ruinas. Mientras recorre el reino y reconstruye su pasado, descubre por qué Zelda lleva tanto tiempo conteniendo una amenaza que está a punto de escapar."
         },
         {
             "id": 2,
@@ -20,7 +21,8 @@
             "precio_descuento": 5999,
             "precio_nuevo": 4999,
             "stock": 17,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Bowser se lleva a la princesa Peach y planea casarse con ella. Mario se une a Cappy, un sombrero con vida propia, y viaja de reino en reino para alcanzar a Bowser antes de la ceremonia."
         },
         {
             "id": 3,
@@ -31,7 +33,8 @@
             "precio_descuento": 2999,
             "precio_nuevo": 2695,
             "stock": 13,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Tu historia empieza en un mundo de bloques donde debes decidir qué hacer con lo que encuentras. Construye el primer refugio, explora cuevas o levanta una ciudad con amigos. El rumbo de la aventura depende de ti."
         },
         {
             "id": 4,
@@ -42,7 +45,8 @@
             "precio_descuento": 999,
             "precio_nuevo": 0,
             "stock": 10,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Cada partida arranca con un salto hacia la isla. Busca equipo, decide dónde ponerte a salvo de la tormenta y cambia de plan cuando el terreno se reduzca. Las temporadas van cambiando el escenario de este enfrentamiento."
         },
         {
             "id": 5,
@@ -53,7 +57,8 @@
             "precio_descuento": 2999,
             "precio_nuevo": 1999,
             "stock": 18,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "En un futuro donde humanos y ómnicos comparten el mundo, antiguos miembros de Overwatch vuelven a reunirse ante nuevas amenazas. Cada héroe aporta su propia historia a un universo que se conoce también fuera de las partidas."
         },
         {
             "id": 6,
@@ -64,7 +69,8 @@
             "precio_descuento": 6999,
             "precio_nuevo": 5999,
             "stock": 20,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Tras un golpe fallido, Arthur Morgan y la banda de Dutch van der Linde se ven obligados a huir. A medida que la ley les pisa los talones, Arthur tendrá que decidir cuánto está dispuesto a sacrificar por las personas que llama su familia."
         },
         {
             "id": 7,
@@ -75,7 +81,8 @@
             "precio_descuento": 699,
             "precio_nuevo": 499,
             "stock": 30,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Una tripulación debe mantener su nave en funcionamiento mientras alguien la sabotea desde dentro. Cada emergencia abre una discusión: ¿quién estaba cerca, quién dice la verdad y a quién están a punto de expulsar por error?"
         },
         {
             "id": 8,
@@ -86,7 +93,8 @@
             "precio_descuento": 4999,
             "precio_nuevo": 3999,
             "stock": 12,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Geralt de Rivia, cazador de monstruos, busca a Ciri mientras la Cacería Salvaje la persigue. En su viaje atraviesa tierras devastadas y toma decisiones que pueden cambiar la vida de quienes se cruzan en su camino."
         },
         {
             "id": 9,
@@ -97,7 +105,8 @@
             "precio_descuento": 6999,
             "precio_nuevo": 5999,
             "stock": 7,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Llegas a una isla casi desierta con una tienda de campaña y poco más. Con cada vecino nuevo, cada casa y cada rincón que personalizas, el lugar empieza a parecerse a la comunidad que quieres construir."
         },
         {
             "id": 10,
@@ -108,7 +117,8 @@
             "precio_descuento": 1999,
             "precio_nuevo": 0,
             "stock": 5,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Tu escuadrón aterriza en una zona de combate y debe conseguir equipo antes de que el área segura se reduzca. Elegir cuándo enfrentarte a otro equipo o reagruparte puede cambiar la historia de la partida."
         },
         {
             "id": 11,
@@ -119,7 +129,8 @@
             "precio_descuento": 1999,
             "precio_nuevo": 1499,
             "stock": 24,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Bajo el pueblo de Bocasucia yace Hallownest, un reino que perdió su esplendor. Un caballero silencioso se adentra en sus túneles y reconstruye el pasado a través de ruinas, criaturas y los pocos habitantes que permanecen allí."
         },
         {
             "id": 12,
@@ -130,7 +141,8 @@
             "precio_descuento": 6999,
             "precio_nuevo": 5999,
             "stock": 14,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "La primera llama se apaga y los Señores de la Ceniza han abandonado sus tronos. Un ser renacido de las cenizas los busca por ciudades en ruinas y castillos decadentes mientras el mundo se acerca a su fin."
         },
         {
             "id": 13,
@@ -141,7 +153,8 @@
             "precio_descuento": 5999,
             "precio_nuevo": 4999,
             "stock": 2,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "En el modo Carrera puedes convertir una promesa en titular o tomar las riendas de un club. Los fichajes, las alineaciones y los resultados van marcando el camino de tu equipo temporada tras temporada."
         },
         {
             "id": 14,
@@ -152,7 +165,8 @@
             "precio_descuento": 6999,
             "precio_nuevo": 5999,
             "stock": 10,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Kronika intenta reescribir la historia después de que Raiden altera el rumbo de los acontecimientos. Sus planes hacen chocar a luchadores de distintas épocas, y algunos tienen que enfrentarse a versiones de sí mismos."
         },
         {
             "id": 15,
@@ -163,7 +177,8 @@
             "precio_descuento": 4999,
             "precio_nuevo": 3999,
             "stock": 12,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Tú decides quiénes son tus Sims, con quién viven y qué quieren conseguir. Una amistad, una mudanza o un cambio de profesión pueden llevar al hogar por caminos que no habías planeado."
         },
         {
             "id": 16,
@@ -174,7 +189,8 @@
             "precio_descuento": 6999,
             "precio_nuevo": 5999,
             "stock": 100,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Eivor deja Noruega con su clan y busca un nuevo hogar en Inglaterra. Para sostener su asentamiento deberá negociar con líderes locales, elegir aliados y decidir hasta dónde llevar sus ambiciones."
         },
         {
             "id": 17,
@@ -185,7 +201,8 @@
             "precio_descuento": 2999,
             "precio_nuevo": 1999,
             "stock": 3,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Cuphead y Mugman pierden una apuesta con el Diablo. Para saldar la deuda, recorren las Islas Tintero recuperando contratos de otros deudores, cada uno dispuesto a pelear para conservar el suyo."
         },
         {
             "id": 18,
@@ -196,7 +213,8 @@
             "precio_descuento": 4999,
             "precio_nuevo": 3999,
             "stock": 12,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Cal Kestis sobrevive a la caída de la Orden Jedi y se esconde del Imperio. Cuando se ve obligado a revelar sus poderes, emprende un viaje para recuperar su entrenamiento y mantener viva la esperanza de la Orden."
         },
         {
             "id": 19,
@@ -207,7 +225,8 @@
             "precio_descuento": 6999,
             "precio_nuevo": 5999,
             "stock": 10,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "Cuando los mongoles invaden Tsushima, el samurái Jin Sakai ve que las tácticas en las que fue entrenado ya no bastan. Para defender su isla, debe decidir qué está dispuesto a dejar atrás de su antiguo código."
         },
         {
             "id": 20,
@@ -218,7 +237,8 @@
             "precio_descuento": 6999,
             "precio_nuevo": 5999,
             "stock": 5,
-            "link": "/productos/producto1.html"
+            "link": "/productos/producto1.html",
+            "historia": "V intenta hacerse un nombre como mercenario en Night City. Un encargo relacionado con un implante experimental sale mal, y sobrevivir exige navegar entre corporaciones, bandas y personas que quieren decidir su futuro."
         }
     ]
 }

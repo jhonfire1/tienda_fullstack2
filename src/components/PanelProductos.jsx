@@ -40,6 +40,7 @@ export default function PanelProductos({ productos, conToken, recargar }) {
       nombre,
       minimo == null ? valores.get(nombre).trim() : Number(valores.get(nombre)),
     ]));
+    datos.historia = valores.get("historia").trim();
     ejecutar((token) => guardarProducto(producto?.id, datos, token), "Producto guardado.");
   }
 
@@ -67,6 +68,11 @@ export default function PanelProductos({ productos, conToken, recargar }) {
                   defaultValue={producto?.[nombre] ?? ""} />
               </div>
             ))}
+            <div className="col-12">
+              <label className="form-label" htmlFor="admin-historia">Historia del juego</label>
+              <textarea className="form-control" id="admin-historia" name="historia"
+                rows={4} maxLength={2000} defaultValue={producto?.historia ?? ""} />
+            </div>
           </div>
           <div className="d-flex flex-wrap gap-2 mt-3">
             <button className="btn btn-primary" type="submit">Guardar producto</button>

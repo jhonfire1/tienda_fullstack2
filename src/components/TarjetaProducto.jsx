@@ -1,4 +1,4 @@
-function TarjetaProducto({ producto, onAgregar, bloqueado }) {
+function TarjetaProducto({ producto, onVerDetalle }) {
   return (
     <article className="card h-100">
       {producto.imagen && <img
@@ -21,10 +21,9 @@ function TarjetaProducto({ producto, onAgregar, bloqueado }) {
         <button
           className="btn btn-primary"
           type="button"
-          disabled={bloqueado || producto.stock === 0}
-          onClick={() => onAgregar(producto)}
+          onClick={() => onVerDetalle(producto)}
         >
-          {producto.stock > 0 ? "Agregar" : "Agotado"}
+          Ver detalles
         </button>
       </div>
     </article>

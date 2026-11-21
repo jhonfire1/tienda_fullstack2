@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import java.util.HashMap;
 import java.util.List;
 
 @SpringBootApplication
@@ -35,6 +36,14 @@ public class TiendaApplication {
                 transaction.executeWithoutResult(status -> {
                     if (productos.count() == 0 && usuarios.count() == 0) {
                         productos.saveAll(catalogo.productos().stream().map(Producto::new).toList());
+                    } else {
+                        var historias = new HashMap<String, String>();
+                        for (var juego : catalogo.productos()) {
+                            historias.put(juego.nombre(), juego.historia());
+                        }
+                        for (var producto : productos.findByHistoriaIsNull()) {
+                            producto.historia = historias.get(producto.nombre);
+                        }
                     }
                     guardarCuenta(usuarios, encoder, "admin", admin, "ADMIN");
                     guardarCuenta(usuarios, encoder, "cliente", cliente, "CLIENTE");

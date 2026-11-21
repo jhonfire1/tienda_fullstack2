@@ -1,10 +1,13 @@
-function ItemCarrito({ item, onCambiarCantidad, bloqueado }) {
+function ItemCarrito({ item, onCambiarCantidad, bloqueado, onVerDetalle }) {
   const subtotal = item.precio_nuevo * item.cantidad;
 
   return (
     <li className="list-group-item">
       <div className="d-flex justify-content-between">
-        <strong>{item.nombre}</strong>
+        <button className="btn btn-link fw-semibold p-0 text-start me-2" type="button"
+          onClick={() => onVerDetalle(item)} aria-label={"Ver detalles de " + item.nombre}>
+          {item.nombre}
+        </button>
         <span>${subtotal.toLocaleString("es-CL")}</span>
       </div>
 

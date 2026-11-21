@@ -24,14 +24,15 @@ class TiendaIntegrationTest {
     @Autowired ObjectMapper json;
 
     private static final String PRODUCTO = """
-        {"nombre":"Prueba CRUD","categoria":"Pruebas","descripcion":"Producto de integración","precio_nuevo":2500,"stock":3}
+        {"nombre":"Prueba CRUD","categoria":"Pruebas","descripcion":"Producto de integración","historia":"Una expedición a una isla.","precio_nuevo":2500,"stock":3}
         """;
 
     @Test
     void swaggerCatalogoYCrudProtegido() throws Exception {
         mvc.perform(get("/v3/api-docs")).andExpect(status().isOk())
             .andExpect(jsonPath("$.paths['/api/productos'].post.security[0].jwt").isArray());
-        mvc.perform(get("/api/productos")).andExpect(status().isOk()).andExpect(jsonPath("$[0].nombre").exists());
+        mvc.perform(get("/api/productos")).andExpect(status().isOk())
+            .andExpect(jsonPath("$[0].historia").isNotEmpty());
         mvc.perform(post("/api/productos").contentType("application/json").content(PRODUCTO))
             .andExpect(status().isUnauthorized());
         mvc.perform(post("/api/productos").header("Authorization", bearer(login("cliente")))
@@ -45,10 +46,12 @@ class TiendaIntegrationTest {
             .contentType("application/json").content(PRODUCTO)).andExpect(status().isCreated()).andReturn();
         long id = json.readTree(creado.getResponse().getContentAsString()).get("id").asLong();
         String ruta = "/api/productos/" + id;
-        mvc.perform(get(ruta)).andExpect(status().isOk()).andExpect(jsonPath("$.stock").value(3));
+        mvc.perform(get(ruta)).andExpect(status().isOk()).andExpect(jsonPath("$.stock").value(3))
+            .andExpect(jsonPath("$.historia").value("Una expedición a una isla."));
         mvc.perform(put(ruta).header("Authorization", admin).contentType("application/json")
-            .content(PRODUCTO.replace("\"stock\":3", "\"stock\":4")))
-            .andExpect(status().isOk()).andExpect(jsonPath("$.stock").value(4));
+            .content(PRODUCTO.replace("\"stock\":3", "\"stock\":4").replace("Una expedición a una isla.", "Un viaje por las montañas.")))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.stock").value(4))
+            .andExpect(jsonPath("$.historia").value("Un viaje por las montañas."));
         mvc.perform(delete(ruta).header("Authorization", admin)).andExpect(status().isNoContent());
         mvc.perform(get(ruta)).andExpect(status().isNotFound());
     }
